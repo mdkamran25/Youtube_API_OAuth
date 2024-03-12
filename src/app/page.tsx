@@ -1,4 +1,5 @@
 import Login from '@/components/Login'
+export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/login`) 
