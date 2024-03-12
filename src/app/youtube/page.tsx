@@ -10,7 +10,7 @@ const Youtube = async ({
 }) => {
   const code = searchParams?.code;
 
-  if(!code) throw new Error("Facing issue in login with account")
+  if(!code) throw new Error("Facing issue, login with account")
   
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/code/`, {
     headers: { code },

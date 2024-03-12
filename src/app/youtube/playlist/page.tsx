@@ -20,7 +20,7 @@ export default async function YoutubePlaylist({
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch data: ${res.statusText}`);
+      throw new Error(`Failed to fetch data ${res.statusText}`);
     }
 
     const data = await res.json();
@@ -39,7 +39,7 @@ export default async function YoutubePlaylist({
     if (error instanceof Error) {
       return (
         <div className="flex h-[100vh] w-[100vw] flex-col items-center justify-center gap-3">
-          <p className="font-semibold">Facing some issue: {error?.message}</p>
+          <p className="font-semibold">Facing issue: {error?.message}</p>
           <Link
             href="/"
             className="p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl"
