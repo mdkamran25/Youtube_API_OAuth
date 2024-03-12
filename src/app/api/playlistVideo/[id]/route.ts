@@ -1,7 +1,7 @@
 import { google, youtube_v3 } from "googleapis";
 import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
-
+export const dynamic = "force-dynamic"
 const OAuth2 = google.auth.OAuth2;
 
 export async function GET(

@@ -1,5 +1,6 @@
 import Playlist from "@/components/playlist";
 import Link from "next/link";
+export const dynamic = "force-dynamic"
 
 export default async function YoutubePlaylist({
   searchParams,
