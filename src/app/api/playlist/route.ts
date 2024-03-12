@@ -5,7 +5,6 @@ import { NextRequest, NextResponse } from "next/server";
 const OAuth2 = google.auth.OAuth2;
 
 export async function GET(req:NextRequest) {
-  console.log("Playlist API is called");
 
   try {
     const jwtToken = req.headers.get("jwtToken");
