@@ -14,9 +14,9 @@ export async function GET(
   
   try {
     const oauth2client = new OAuth2(
-      process.env.NEXT_PUBLIC_CLIENT_ID!,
-      process.env.NEXT_PUBLIC_CLIENT_SECRET!,
-      process.env.NEXT_PUBLIC_REDIRECT_URI!
+      process.env.CLIENT_ID!,
+      process.env.CLIENT_SECRET!,
+      process.env.REDIRECT_URI!
     );
 
     if (!token) {
@@ -26,7 +26,7 @@ export async function GET(
     const decodedToken =
      jwt.verify(
       token as string,
-      process.env.NEXT_PUBLIC_JWT_SECRET!
+      process.env.JWT_SECRET!
     );
 
     oauth2client.setCredentials(decodedToken as TokenObject);

@@ -6,13 +6,13 @@ const OAuth2 = google.auth.OAuth2;
 export async function GET() {
     try {
         const oauth2client = new OAuth2(
-            process.env.NEXT_PUBLIC_CLIENT_ID,
-            process.env.NEXT_PUBLIC_CLIENT_SECRET,
-            process.env.NEXT_PUBLIC_REDIRECT_URI
+            process.env.CLIENT_ID,
+            process.env.CLIENT_SECRET,
+            process.env.REDIRECT_URI
         );
         const loginLink = oauth2client.generateAuthUrl({
             access_type:"offline",
-            scope: process.env.NEXT_PUBLIC_SCOPE
+            scope: process.env.SCOPE
         })
         return NextResponse.json({loginLink},{status:200})
     } catch (error) {

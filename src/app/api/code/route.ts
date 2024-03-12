@@ -2,6 +2,7 @@ import { google, youtube_v3 } from "googleapis";
 import jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 export const dynamic = "force-dynamic"
+
 const OAuth2 = google.auth.OAuth2;
 
 export async function GET(req:NextRequest) {
@@ -14,9 +15,9 @@ export async function GET(req:NextRequest) {
     }
 
     const oauth2client = new OAuth2(
-      process.env.NEXT_PUBLIC_CLIENT_ID!,
-      process.env.NEXT_PUBLIC_CLIENT_SECRET!,
-      process.env.NEXT_PUBLIC_REDIRECT_URI!
+      process.env.CLIENT_ID!,
+      process.env.CLIENT_SECRET!,
+      process.env.REDIRECT_URI!
     );
 
     let { tokens } = await oauth2client.getToken(code);     
@@ -27,7 +28,7 @@ export async function GET(req:NextRequest) {
 
     const jwtToken = jwt.sign(
       tokens as object,
-      process.env.NEXT_PUBLIC_JWT_SECRET!
+      process.env.JWT_SECRET!
     );
     
     return NextResponse.json(
@@ -36,7 +37,6 @@ export async function GET(req:NextRequest) {
     );
   } catch (error) {
     if (error instanceof Error) {
-      console.error("Error occurred:", error);
       return NextResponse.json(
         { error: error.message, reason: error.cause },
         { status: 500 }

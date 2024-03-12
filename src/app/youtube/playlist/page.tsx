@@ -37,7 +37,6 @@ export default async function YoutubePlaylist({
     );
   } catch (error) {
     if (error instanceof Error) {
-      console.error("Error fetching data:", error.message);
       return (
         <div className="flex h-[100vh] w-[100vw] flex-col items-center justify-center gap-3">
           <p className="font-semibold">Facing some issue: {error?.message}</p>
